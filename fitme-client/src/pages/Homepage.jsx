@@ -2,42 +2,35 @@ import { Link } from 'react-router-dom';
 import workoutImage from '../assets/images/workout.jpg';
 import foodImage from '../assets/images/healthyfood.avif';
 import treadmillImage from '../assets/images/treadmill.avif';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function Homepage() {
   return (
     <div className="min-h-screen bg-black text-white">
-      
-      {/* Navbar */}
-      <header className="flex flex-col md:flex-row justify-between items-center p-4 bg-black">
-        <div className="text-2xl md:text-3xl font-bold tracking-wider mb-4 md:mb-0">
-          FIT- ME
-        </div>
-        <nav className="flex flex-wrap gap-2 md:gap-4 justify-center">
-          {/* Change this part */}
-          <Link
-            to="/auth"
-            className="bg-[#1a1a1a] px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-700 transition duration-300 text-sm md:text-base"
-          >
-            LOGIN
-          </Link>
-          <Link
-            to="/auth"
-            className="bg-[#1a1a1a] px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-700 transition duration-300 text-sm md:text-base"
-          >
-            REGISTER
-          </Link>
-          <Link
-            to="/about"
-            className="bg-[#1a1a1a] px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-700 transition duration-300 text-sm md:text-base"
-          >
-            ABOUT US
-          </Link>
-        </nav>
-      </header>
+      <Header>
+        <Link
+          to="/login"
+          className="px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-700 transition duration-300 text-sm md:text-base"
+        >
+          LOGIN
+        </Link>
+        <Link
+          to="/register"
+          className="px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-700 transition duration-300 text-sm md:text-base"
+        >
+          REGISTER
+        </Link>
+        <Link
+          to="/about"
+          className="px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-700 transition duration-300 text-sm md:text-base"
+        >
+          ABOUT US
+        </Link>
+      </Header>
 
       {/* Main Content */}
       <main className="relative min-h-[70vh] md:h-[calc(100vh-80px)]">
-        
         {/* Image Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 h-full gap-1">
           {[workoutImage, foodImage, treadmillImage].map((image, index) => (
@@ -61,13 +54,7 @@ export default function Homepage() {
           </div>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-black text-white py-3 text-center">
-        <div className="container mx-auto">
-          <p className="text-sm md:text-base">DEVELOPED BY SIDDHANT GUPTA</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
-} 
+}
