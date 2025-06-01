@@ -62,7 +62,7 @@ export default function Dashboard() {
   const [logs, setLogs] = useState([]);
 
   // Log form state
-  const [logDate, setLogDate] = useState(() => new Date().toISOString().slice(0, 10));
+  const [logDate, setLogDate] = useState(() => new Date().toLocaleDateString('en-CA'))
   const [todaySteps, setTodaySteps] = useState(0);
   const [todayCalories, setTodayCalories] = useState(0);
   const [didWorkout, setDidWorkout] = useState(false);
@@ -356,7 +356,7 @@ export default function Dashboard() {
                 value={logDate}
                 onChange={e => setLogDate(e.target.value)}
                 className="w-36 text-center px-2 py-1 rounded bg-zinc-800 border border-zinc-700 text-white"
-                max={new Date().toISOString().slice(0, 10)}
+                max={new Date().toLocaleDateString('en-CA')}
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
