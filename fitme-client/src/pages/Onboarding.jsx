@@ -12,6 +12,8 @@ const activityLevels = [
   { value: 'super', label: 'Super active', desc: 'Very hard exercise & physical job' },
 ];
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function ProfileDropdown({ onLogout }) {
   const [open, setOpen] = useState(false);
   const ref = useRef();
@@ -121,7 +123,7 @@ export default function Onboarding() {
         activity: activity,
       };
 
-      const res = await fetch('/api/users/onboarding', {
+      const res = await fetch(`${API_URL}/api/users/onboarding`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -140,7 +142,6 @@ export default function Onboarding() {
 
       // Optionally update user info in localStorage
       localStorage.setItem('user', JSON.stringify(data.user));
-
       navigate('/dashboard');
     } catch (err) {
       setError('Server error. Please try again.');
@@ -258,7 +259,6 @@ export default function Onboarding() {
                 ))}
               </select>
             </div>
-
             {/* Submit */}
             <button
               type="submit"

@@ -4,6 +4,8 @@ import workoutImage from '../assets/images/workout.jpg';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -30,7 +32,7 @@ export default function Login() {
     }
     setLoading(true);
     try {
-      const res = await fetch('/api/users/login', {
+      const res = await fetch(`${API_URL}/api/users/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

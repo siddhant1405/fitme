@@ -4,6 +4,8 @@ import treadmillImage from '../assets/images/treadmill.avif';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export default function Register() {
   const [formData, setFormData] = useState({
     email: '',
@@ -44,7 +46,7 @@ export default function Register() {
     };
 
     try {
-      const res = await fetch('/api/users/register', {
+      const res = await fetch(`${API_URL}/api/users/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

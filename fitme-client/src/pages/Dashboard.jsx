@@ -14,6 +14,8 @@ import {
   Legend,
 } from 'chart.js';
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 // Date-aware streak calculation
@@ -77,9 +79,10 @@ export default function Dashboard() {
   const fetchDashboard = async () => {
     try {
       // Fetch dashboard data
-      const dashRes = await fetch('/api/users/dashboard', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const dashRes = await fetch(`${API_URL}/api/users/dashboard`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
       const dashData = await dashRes.json();
       if (dashRes.ok) {
         setMaintenanceCalories(dashData.maintenance);
@@ -98,9 +101,10 @@ export default function Dashboard() {
       }
 
       // Fetch user profile for name, image, and goal
-      const profileRes = await fetch('/api/users/me', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+        const profileRes = await fetch(`${API_URL}/api/users/me`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
       const profileData = await profileRes.json();
       if (profileRes.ok) {
         setUserName(profileData.firstName);
@@ -188,7 +192,7 @@ export default function Dashboard() {
   // Save log for selected date
   const saveDailyLog = async () => {
     try {
-      const res = await fetch('/api/users/log', {
+      const res = await fetch(`${API_URL}/api/users/log`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -201,6 +205,7 @@ export default function Dashboard() {
           workout: didWorkout,
         }),
       });
+
       const data = await res.json();
       if (res.ok) {
         toast.success('Log saved successfully!');

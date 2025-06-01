@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import defaultProfileImg from '../assets/images/image.jpg';
 import toast from 'react-hot-toast'; 
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const activityLevels = [
   { value: 'sedentary', label: 'Sedentary', desc: 'Little or no exercise' },
   { value: 'light', label: 'Lightly active', desc: 'Light exercise/sports 1-3 days/week' },
@@ -57,10 +59,10 @@ export default function Profile() {
     const fetchProfile = async () => {
       if (!token) return;
       try {
-        const res = await fetch('/api/users/me', {
-          headers: { Authorization: `Bearer ${token}` },
+        const res = await fetch(`${API_URL}/api/users/me`, {
+        headers: { Authorization: `Bearer ${token}` },
         });
-        const data = await res.json();
+                const data = await res.json();
         if (!res.ok) throw new Error(data.message || 'Failed to fetch profile');
         setProfile({
           firstName: data.firstName || '',
@@ -105,11 +107,11 @@ export default function Profile() {
     });
 
     try {
-      const res = await fetch('/api/users/profile', {
-        method: 'PATCH',
-        headers: { Authorization: `Bearer ${token}` },
-        body: formData,
-      });
+      const res = await fetch(`${API_URL}/api/users/profile`, {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${token}` },
+      body: formData,
+    });
       const result = await res.json();
       if (!res.ok) throw new Error(result.message || 'Profile update failed');
 
