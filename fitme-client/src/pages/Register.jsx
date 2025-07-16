@@ -12,7 +12,6 @@ export default function Register() {
     password: '',
     firstName: '',
     lastName: '',
-    // userImage: '', // Uncomment if you want to support profile image upload
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
