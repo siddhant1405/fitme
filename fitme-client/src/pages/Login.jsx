@@ -136,9 +136,9 @@ export default function Login() {
               </div>
               
               <div className="text-left">
-                <a href="#" className="text-white hover:underline">
+                <span className="text-white hover:underline cursor-pointer">
                   FORGOT PASSWORD?
-                </a>
+                </span>
               </div>
               
               <button
