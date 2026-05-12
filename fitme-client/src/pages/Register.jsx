@@ -41,7 +41,7 @@ export default function Register() {
       lastName: formData.lastName,
       email: formData.email,
       password: formData.password,
-      // userImage: formData.userImage, // Uncomment if you add image support
+      // userImage: formData.userImage,
     };
 
     try {
