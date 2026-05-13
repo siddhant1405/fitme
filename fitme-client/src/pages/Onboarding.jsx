@@ -159,7 +159,7 @@ export default function Onboarding() {
       <main className="flex-grow flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-3xl bg-zinc-900 p-8 rounded-lg shadow-lg">
           <h1 className="text-4xl font-bold mb-2 text-center">TELL US ABOUT YOU</h1>
-          <p className="mb-8 text-center">Personalize your FitMe experience!</p>
+          <p className="mb-8 text-center">Personalize your FitGrid experience!</p>
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
               <div className="text-red-400 text-center font-semibold">{error}</div>

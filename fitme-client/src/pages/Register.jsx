@@ -108,7 +108,7 @@ export default function Register() {
           
           {/* Form Container */}
           <div className="relative z-10 bg-black bg-opacity-70 p-8 rounded-lg">
-            <h1 className="text-4xl font-bold mb-2 text-center">WELCOME TO FIT-ME</h1>
+            <h1 className="text-4xl font-bold mb-2 text-center">WELCOME TO FITGRID</h1>
             <p className="mb-8 text-center">START YOUR JOURNEY!</p>
             
             <form onSubmit={handleSubmit} className="w-full space-y-6">
