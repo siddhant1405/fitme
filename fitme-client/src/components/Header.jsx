@@ -12,7 +12,7 @@ export default function Header({ children }) {
           className="h-10 w-auto mr-2 group-hover:scale-110 transition-transform duration-300"
         />
         <div className="text-2xl md:text-3xl font-bold tracking-wider">
-          <span className="text-white">FIT</span><span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">GRID</span>
+          <span className="text-white">FIT</span><span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">GRID</span>
         </div>
       </Link>
       <nav className="flex flex-wrap gap-2 md:gap-4 justify-center">

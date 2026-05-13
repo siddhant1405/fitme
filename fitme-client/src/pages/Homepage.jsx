@@ -11,7 +11,7 @@ const features = [
     icon: <FaChartLine className="text-3xl" />,
     title: 'Progress Grid',
     desc: 'GitHub-style heatmap to visualize your daily consistency at a glance.',
-    color: 'from-emerald-500 to-cyan-500',
+    color: 'from-blue-500 to-blue-600',
   },
   {
     icon: <FaFireAlt className="text-3xl" />,
@@ -45,7 +45,7 @@ export default function Homepage() {
         </Link>
         <Link
           to="/register"
-          className="px-6 md:px-8 py-2 md:py-3 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-bold hover:opacity-90 transition duration-300 text-sm md:text-base"
+          className="px-6 md:px-8 py-2 md:py-3 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold hover:opacity-90 transition duration-300 text-sm md:text-base"
         >
           GET STARTED
         </Link>
@@ -82,7 +82,7 @@ export default function Homepage() {
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
             TRAIN HARD.{' '}
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               TRACK SMARTER.
             </span>
           </h1>
@@ -94,7 +94,7 @@ export default function Homepage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/register"
-              className="px-10 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-emerald-500/20"
+              className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/20"
             >
               START FOR FREE
             </Link>
@@ -113,7 +113,7 @@ export default function Homepage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
             EVERYTHING YOU NEED TO{' '}
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               STAY ON TRACK
             </span>
           </h2>
@@ -143,7 +143,7 @@ export default function Homepage() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             READY TO BUILD YOUR{' '}
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               STREAK?
             </span>
           </h2>
@@ -152,7 +152,7 @@ export default function Homepage() {
           </p>
           <Link
             to="/register"
-            className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 text-black font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-emerald-500/20"
+            className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/20"
           >
             CREATE YOUR ACCOUNT
           </Link>

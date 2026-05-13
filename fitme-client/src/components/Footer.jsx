@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <div className="text-xl font-bold mb-3">
               <span className="text-white">FIT</span>
-              <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">GRID</span>
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">GRID</span>
             </div>
             <p className="text-sm leading-relaxed">
               Track your fitness journey with precision. Log workouts, monitor calories, 
@@ -53,9 +53,8 @@ export default function Footer() {
         </div>
 
         {/* Divider & Copyright */}
-        <div className="border-t border-zinc-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-xs">
+        <div className="border-t border-zinc-800 mt-8 pt-6 flex justify-center items-center text-xs text-center">
           <p>&copy; {new Date().getFullYear()} FitGrid. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Crafted with 💪 and ☕</p>
         </div>
       </div>
     </footer>

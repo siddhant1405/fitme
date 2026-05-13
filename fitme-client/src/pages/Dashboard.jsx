@@ -267,15 +267,15 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="flex gap-8 mt-6 mb-6 text-lg font-bold">
+        <div className="flex gap-8 mt-6 mb-6 text-sm font-medium">
           <button
-            className={`border-b-2 ${activeTab === 'dashboard' ? 'border-white text-white' : 'border-transparent text-gray-400'} px-2`}
+            className={`border-b-2 pb-1 ${activeTab === 'dashboard' ? 'border-blue-500 text-blue-500' : 'border-transparent text-zinc-500 hover:text-zinc-300'} transition-colors`}
             onClick={() => setActiveTab('dashboard')}
           >
             DASHBOARD
           </button>
           <button
-            className={`border-b-2 ${activeTab === 'log' ? 'border-white text-white' : 'border-transparent text-gray-400'} px-2`}
+            className={`border-b-2 pb-1 ${activeTab === 'log' ? 'border-blue-500 text-blue-500' : 'border-transparent text-zinc-500 hover:text-zinc-300'} transition-colors`}
             onClick={() => setActiveTab('log')}
           >
             DAILY LOG
@@ -283,7 +283,7 @@ export default function Dashboard() {
         </div>
 
         {activeTab === 'dashboard' && (
-          <div className="w-full max-w-4xl bg-zinc-900 p-8 rounded-lg shadow-lg">
+          <div className="w-full max-w-4xl bg-zinc-950 border border-zinc-800 p-8 rounded-2xl shadow-xl">
             <div className="mb-6">
               <h2 className="text-xl font-semibold mb-4">Progress Grid</h2>
               <div className="bg-black rounded-lg p-4 overflow-x-auto">
@@ -326,7 +326,7 @@ export default function Dashboard() {
             </div>
 
             {/* Goal Consistency Pie Charts */}
-            <div className="w-full max-w-4xl bg-zinc-900 p-8 rounded-lg shadow-lg mt-8">
+            <div className="w-full max-w-4xl bg-zinc-950 border border-zinc-800 p-8 rounded-2xl shadow-xl mt-8">
               <h2 className="text-xl font-semibold mb-4 text-center">Goal Consistency</h2>
               <div className="flex flex-row gap-6 justify-center items-end">
                 <div className="flex flex-col items-center">
@@ -356,18 +356,18 @@ export default function Dashboard() {
         )}
 
         {activeTab === 'log' && (
-          <div className="w-full max-w-4xl bg-zinc-900 p-8 rounded-lg shadow-lg">
+          <div className="w-full max-w-4xl bg-zinc-950 border border-zinc-800 p-8 rounded-2xl shadow-xl">
             <h2 className="text-2xl font-bold mb-6 text-center">Log Entry</h2>
             {/* Date Picker */}
             <div className="flex flex-col items-center mb-6">
               <label className="text-gray-400 mb-1">Select Date</label>
-              <input
-                type="date"
-                value={logDate}
-                onChange={e => setLogDate(e.target.value)}
-                className="w-36 text-center px-2 py-1 rounded bg-zinc-800 border border-zinc-700 text-white"
-                max={new Date().toLocaleDateString('en-CA')}
-              />
+                <input
+                  type="date"
+                  value={logDate}
+                  onChange={e => setLogDate(e.target.value)}
+                  className="w-36 text-center px-2 py-1.5 rounded-md bg-transparent border border-zinc-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  max={new Date().toLocaleDateString('en-CA')}
+                />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {/* Steps */}
@@ -419,7 +419,7 @@ export default function Dashboard() {
                   type="number"
                   value={todaySteps === 0 ? "" : todaySteps}
                   onChange={e => setTodaySteps(e.target.value === "" ? 0 : Number(e.target.value))}
-                  className="mt-2 w-24 text-center px-2 py-1 rounded bg-zinc-800 border border-zinc-700 text-white"
+                  className="mt-2 w-24 text-center px-2 py-1.5 rounded-md bg-transparent border border-zinc-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                   min={0}
                 />
               </div>
@@ -472,7 +472,7 @@ export default function Dashboard() {
                   type="number"
                   value={todayCalories === 0 ? "" : todayCalories}
                   onChange={e => setTodayCalories(e.target.value === "" ? 0 : Number(e.target.value))}
-                  className="mt-2 w-24 text-center px-2 py-1 rounded bg-zinc-800 border border-zinc-700 text-white"
+                  className="mt-2 w-24 text-center px-2 py-1.5 rounded-md bg-transparent border border-zinc-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                   min={0}
                 />
               </div>
@@ -517,9 +517,9 @@ export default function Dashboard() {
               <button
                 type="button"
                 onClick={saveDailyLog}
-                className="py-3 px-8 rounded-full bg-green-600 hover:bg-green-700 font-bold text-white text-lg transition"
+                className="py-2.5 px-6 rounded-lg bg-blue-600 hover:bg-blue-700 font-medium text-white text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black"
               >
-                Save Log
+                Save Log Entry
               </button>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import treadmillImage from '../assets/images/treadmill.avif';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
@@ -35,13 +34,11 @@ export default function Register() {
     }
     setLoading(true);
 
-    // Prepare payload matching the backend schema
     const payload = {
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
       password: formData.password,
-      // userImage: formData.userImage,
     };
 
     try {
@@ -58,14 +55,11 @@ export default function Register() {
         return;
       }
 
-      // --- Store token and user info from backend response ---
       if (data.token && data.user) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
       }
-      // -------------------------------------------------------
 
-      // Registration successful, redirect to onboarding
       navigate('/onboarding');
     } catch (err) {
       setError('Server error. Please try again.');
@@ -77,143 +71,111 @@ export default function Register() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
        <Header>
-            <Link 
-             to="/login"
-             className="text-white px-8 py-3 rounded-full hover:bg-zinc-700 transition duration-300"
-               >
-             LOGIN
-            </Link>
-            <Link
-          to="/about"
-          className="px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-700 transition duration-300 text-sm md:text-base"
-        >
-          ABOUT US
-        </Link>
+          <Link 
+            to="/login"
+            className="text-white px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-zinc-800 transition duration-300 text-sm md:text-base"
+          >
+            LOGIN
+          </Link>
+          <Link
+            to="/about"
+            className="px-6 md:px-8 py-2 md:py-3 rounded-full text-white hover:bg-zinc-800 transition duration-300 text-sm md:text-base"
+          >
+            ABOUT US
+          </Link>
       </Header>
       
-      {/* Main Content */}
-      <main className="flex-grow flex items-center justify-center p-4">
-        <div className="relative w-full max-w-md">
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 rounded-lg"
-            style={{
-              backgroundImage: `url(${treadmillImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              opacity: 1,
-              filter: 'brightness(0.8)',
-            }}
-          ></div>
-          
-          {/* Form Container */}
-          <div className="relative z-10 bg-black bg-opacity-70 p-8 rounded-lg">
-            <h1 className="text-4xl font-bold mb-2 text-center">WELCOME TO FITGRID</h1>
-            <p className="mb-8 text-center">START YOUR JOURNEY!</p>
+      <main className="flex-grow flex items-center justify-center p-4 sm:p-8">
+        <div className="w-full max-w-md bg-zinc-950 border border-zinc-800 shadow-xl rounded-2xl p-8 sm:p-10">
+          <div className="mb-8 text-center">
+            <h1 className="text-2xl font-bold tracking-tight mb-2">Create an account</h1>
+            <p className="text-sm text-zinc-400">
+              Already have an account?{' '}
+              <Link to="/login" className="text-blue-500 hover:text-blue-400 font-medium transition-colors">
+                Sign in
+              </Link>
+            </p>
+          </div>
             
-            <form onSubmit={handleSubmit} className="w-full space-y-6">
-              {error && (
-                <div className="text-red-400 text-center font-semibold">{error}</div>
-              )}
-              <div>
-                <label htmlFor="firstName" className="block mb-2 font-medium">
-                  FIRST NAME
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {error && (
+              <div className="text-red-400 text-sm text-center font-medium bg-red-400/10 py-2 rounded-md border border-red-400/20">{error}</div>
+            )}
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label htmlFor="firstName" className="block text-sm font-medium text-zinc-300">
+                  First name
                 </label>
                 <input
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="enter first name"
+                  placeholder="John"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-white text-white"
+                  className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder:text-zinc-600 text-sm transition-colors"
                   required
                 />
               </div>
               
-              <div>
-                <label htmlFor="lastName" className="block mb-2 font-medium">
-                  LAST NAME
+              <div className="space-y-1.5">
+                <label htmlFor="lastName" className="block text-sm font-medium text-zinc-300">
+                  Last name
                 </label>
                 <input
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="enter last name"
+                  placeholder="Doe"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-white text-white"
+                  className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder:text-zinc-600 text-sm transition-colors"
                   required
                 />
               </div>
-              
-              <div>
-                <label htmlFor="email" className="block mb-2 font-medium">
-                  EMAIL
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="enter email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-white text-white"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="password" className="block mb-2 font-medium">
-                  PASSWORD
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="enter password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-white text-white"
-                  required
-                />
-              </div>
-              
-              {/* Uncomment if you want a profile image field
-              <div>
-                <label htmlFor="userImage" className="block mb-2 font-medium">
-                  PROFILE IMAGE URL
-                </label>
-                <input
-                  type="text"
-                  id="userImage"
-                  name="userImage"
-                  placeholder="enter image URL"
-                  value={formData.userImage}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-white text-white"
-                />
-              </div>
-              */}
-              
-              <button
-                type="submit"
-                className="w-full py-3 bg-white text-black font-bold rounded-md hover:bg-gray-300 transition duration-300"
-                disabled={loading}
-              >
-                {loading ? 'Registering...' : 'REGISTER'}
-              </button>
-              
-              <div className="text-center">
-                <p>
-                  ALREADY A USER? 
-                  <Link to="/login" className="text-white font-bold underline ml-1">
-                    LOGIN
-                  </Link>
-                </p>
-              </div>
-            </form>
-          </div>
+            </div>
+            
+            <div className="space-y-1.5">
+              <label htmlFor="email" className="block text-sm font-medium text-zinc-300">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="name@example.com"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder:text-zinc-600 text-sm transition-colors"
+                required
+              />
+            </div>
+            
+            <div className="space-y-1.5">
+              <label htmlFor="password" className="block text-sm font-medium text-zinc-300">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder:text-zinc-600 text-sm transition-colors"
+                required
+              />
+            </div>
+            
+            <button
+              type="submit"
+              className="w-full py-2.5 mt-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+              disabled={loading}
+            >
+              {loading ? 'Creating account...' : 'Create account'}
+            </button>
+          </form>
         </div>
       </main>
       

@@ -157,9 +157,11 @@ export default function Onboarding() {
       </Header>
 
       <main className="flex-grow flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-3xl bg-zinc-900 p-8 rounded-lg shadow-lg">
-          <h1 className="text-4xl font-bold mb-2 text-center">TELL US ABOUT YOU</h1>
-          <p className="mb-8 text-center">Personalize your FitGrid experience!</p>
+        <div className="w-full max-w-3xl bg-zinc-950 border border-zinc-800 p-8 sm:p-10 rounded-2xl shadow-xl">
+          <div className="mb-8 text-center">
+            <h1 className="text-3xl font-bold tracking-tight mb-2">Tell us about you</h1>
+            <p className="text-sm text-zinc-400">Personalize your FitGrid experience</p>
+          </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
               <div className="text-red-400 text-center font-semibold">{error}</div>
@@ -167,13 +169,13 @@ export default function Onboarding() {
             {/* Gender + DOB */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block mb-2 font-medium">GENDER</label>
+                <label className="block mb-2 text-sm font-medium text-zinc-300">Gender</label>
                 <select
                   name="gender"
                   value={form.gender}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md text-white"
+                  className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white text-sm"
                 >
                   <option value="">Select gender</option>
                   <option value="male">Male</option>
@@ -182,14 +184,14 @@ export default function Onboarding() {
                 </select>
               </div>
               <div>
-                <label className="block mb-2 font-medium">DATE OF BIRTH</label>
+                <label className="block mb-2 text-sm font-medium text-zinc-300">Date of Birth</label>
                 <input
                   type="date"
                   name="dob"
                   value={form.dob}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md text-white"
+                  className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white text-sm"
                 />
               </div>
             </div>
@@ -197,7 +199,7 @@ export default function Onboarding() {
             {/* Height + Weight */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block mb-2 font-medium">HEIGHT (cm)</label>
+                <label className="block mb-2 text-sm font-medium text-zinc-300">Height (cm)</label>
                 <input
                   type="number"
                   name="height"
@@ -206,11 +208,11 @@ export default function Onboarding() {
                   required
                   min="0"
                   placeholder="Enter height in cm"
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md text-white"
+                  className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder:text-zinc-600 text-sm"
                 />
               </div>
               <div>
-                <label className="block mb-2 font-medium">WEIGHT (kg)</label>
+                <label className="block mb-2 text-sm font-medium text-zinc-300">Weight (kg)</label>
                 <input
                   type="number"
                   name="weight"
@@ -219,20 +221,20 @@ export default function Onboarding() {
                   required
                   min="0"
                   placeholder="Enter weight in kg"
-                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md text-white"
+                  className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder:text-zinc-600 text-sm"
                 />
               </div>
             </div>
 
             {/* Goal */}
             <div>
-              <label className="block mb-2 font-medium">FITNESS GOAL</label>
+              <label className="block mb-2 text-sm font-medium text-zinc-300">Fitness Goal</label>
               <select
                 name="goal"
                 value={form.goal}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md text-white"
+                className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white text-sm"
               >
                 <option value="">Select your goal</option>
                 <option value="lose">Lose weight</option>
@@ -243,13 +245,13 @@ export default function Onboarding() {
 
             {/* Activity */}
             <div>
-              <label className="block mb-2 font-medium">ACTIVITY LEVEL</label>
+              <label className="block mb-2 text-sm font-medium text-zinc-300">Activity Level</label>
               <select
                 name="activity"
                 value={form.activity}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-md text-white"
+                className="w-full px-3 py-2 bg-transparent border border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 text-white text-sm"
               >
                 <option value="">Select activity level</option>
                 {activityLevels.map((lvl) => (
@@ -262,10 +264,10 @@ export default function Onboarding() {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full py-3 bg-white text-black font-bold rounded-md hover:bg-gray-300 transition duration-300"
+              className="w-full py-2.5 mt-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-black transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
               disabled={loading}
             >
-              {loading ? 'Saving...' : 'START YOUR JOURNEY!'}
+              {loading ? 'Saving...' : 'Complete setup'}
             </button>
           </form>
         </div>

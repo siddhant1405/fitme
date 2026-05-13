@@ -9,7 +9,7 @@ const techStack = [
   { icon: <FaReact />, name: 'React 19', color: 'text-cyan-400' },
   { icon: <FaNodeJs />, name: 'Node.js', color: 'text-green-400' },
   { icon: <SiExpress />, name: 'Express 5', color: 'text-gray-300' },
-  { icon: <FaDatabase />, name: 'MongoDB', color: 'text-emerald-400' },
+  { icon: <FaDatabase />, name: 'MongoDB', color: 'text-blue-400' },
   { icon: <SiJsonwebtokens />, name: 'JWT Auth', color: 'text-pink-400' },
   { icon: <SiTailwindcss />, name: 'Tailwind CSS', color: 'text-sky-400' },
 ];
@@ -19,7 +19,7 @@ const highlights = [
     icon: <FaThLarge className="text-2xl" />,
     title: 'GitHub-Style Progress Grid',
     desc: 'A full-year heatmap that scores each day (0–3) based on whether you hit your steps, calorie, and workout goals. Your consistency becomes visible at a glance — just like a contribution graph.',
-    gradient: 'from-emerald-500 to-cyan-500',
+    gradient: 'from-blue-500 to-blue-600',
   },
   {
     icon: <FaChartPie className="text-2xl" />,
@@ -66,7 +66,7 @@ export default function About() {
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
           THE STORY BEHIND{' '}
-          <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
             FITGRID
           </span>
         </h1>
@@ -83,7 +83,7 @@ export default function About() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
             WHAT MAKES IT{' '}
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               DIFFERENT
             </span>
           </h2>
