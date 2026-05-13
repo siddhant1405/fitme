@@ -75,7 +75,8 @@ export default function Profile() {
           activity: data.activity || '',
           userImage: data.userImage || '',
         });
-        setProfileImg(data.userImage || '');
+        // Prepend API_URL so the browser fetches images from the backend server
+        setProfileImg(data.userImage ? `${API_URL}${data.userImage}` : '');
       } catch (err) {
         console.error('Failed to load profile:', err.message);
         toast.error('Failed to load profile.');
@@ -103,6 +104,8 @@ export default function Profile() {
     const formData = new FormData();
     if (selectedFile) formData.append('userImage', selectedFile);
     Object.entries(profile).forEach(([key, value]) => {
+      // Skip userImage string to avoid sending duplicate field with the file
+      if (key === 'userImage') return;
       if (value !== undefined) formData.append(key, value);
     });
 
@@ -127,7 +130,7 @@ export default function Profile() {
         activity: result.user.activity || '',
         userImage: result.user.userImage || '',
       });
-      setProfileImg(result.user.userImage || '');
+      setProfileImg(result.user.userImage ? `${API_URL}${result.user.userImage}` : '');
       localStorage.setItem('user', JSON.stringify(result.user));
     } catch (err) {
       console.error(err);

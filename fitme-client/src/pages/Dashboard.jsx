@@ -108,7 +108,12 @@ export default function Dashboard() {
       const profileData = await profileRes.json();
       if (profileRes.ok) {
         setUserName(profileData.firstName);
-        setProfileImg(profileData.userImage || defaultProfileImg);
+        // Prepend API_URL so the browser fetches images from the backend server
+        setProfileImg(
+          profileData.userImage
+            ? `${API_URL}${profileData.userImage}`
+            : defaultProfileImg
+        );
         setUserGoal(profileData.goal || 'lose');
       }
     } catch (err) {
