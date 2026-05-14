@@ -94,7 +94,7 @@ export default function Homepage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/register"
-              className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/20"
+              className="px-10 py-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition-transform duration-300"
             >
               START FOR FREE
             </Link>
@@ -152,7 +152,7 @@ export default function Homepage() {
           </p>
           <Link
             to="/register"
-            className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition-transform duration-300 shadow-lg shadow-blue-500/20"
+            className="inline-block px-10 py-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg hover:scale-105 transition-transform duration-300"
           >
             CREATE YOUR ACCOUNT
           </Link>
